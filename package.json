@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/lkendo/SupremaChallenge#readme",
   "dependencies": {
+    "config": "^3.3.12",
     "readline-sync": "^1.4.10",
     "ws": "^8.18.0"
   }

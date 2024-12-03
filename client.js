@@ -1,10 +1,11 @@
 const readlineSync = require('readline-sync');
+const config = require('config');
 
 const WebSocket = require('ws');
 
 // Conecta ao servidor WebSocket
-const port = 8080;
 
+const port = config.port;
 const ws = new WebSocket(`ws://localhost:${port}`);
 
 // Recebe a resposta do servidor
@@ -15,7 +16,7 @@ ws.on('open', async function open() {
   const password = readlineSync.question('Favor informar a senha: ');
 
   ws.send(JSON.stringify({
-    method: 'authenticate',
+    method: 'authenticate', // Método da chamada RPC
     params: [user, password]  // Parâmetros da chamada RPC
   }));
 });

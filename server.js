@@ -1,9 +1,13 @@
 const WebSocket = require('ws');
+const config = require('config');
 
-// Criação do servidor WebSocket na porta 8080
-const wss = new WebSocket.Server({ port: 8080 });
+// Criação do servidor WebSocket na porta 3050
 
-console.log('Servidor WebSocket rodando na porta 8080');
+const port = config.port;
+
+const wss = new WebSocket.Server({ port: port });
+
+console.log(`Servidor WebSocket rodando na porta ${port}`);
 
 // Simula um "serviço RPC" com métodos
 const rpcMethods = {
